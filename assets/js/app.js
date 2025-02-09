@@ -1,16 +1,16 @@
 const baseEndpoint = 'https://api.github.com';
 const usersEndpoint = `${baseEndpoint}/users`;
-const $n = document.querySelector('name');
-const $b = document.querySelector('#blog');
-const $l = document.querySelector('.location');
+const userName = document.querySelector('name');                        // I've not seen these characters "$" before in a declared variable It is better to rename all of them 
+const nameBlog = document.querySelector('#blog');
+const userLocation = document.querySelector('.location');
 
-function displayUser(username) {
-  $n.textContent = 'cargando...';
+async function displayUser(username) {
+  userName.textContent = 'cargando...';
   const response = await fetch(`${usersEndpoint}/${username}`);
   console.log(data);
-  $n.textContent = '${data.name}';
-  $b.textContent = '${data.blog}';
-  $l.textContent = '${data.location}';
+  userName.textContent = '${data.name}';
+  nameBlog.textContent = '${data.blog}';
+  userLocation.textContent = '${data.location}';
 }
 
 function handleError(err) {
